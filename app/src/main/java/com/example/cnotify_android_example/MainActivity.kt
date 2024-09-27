@@ -1,5 +1,6 @@
 package com.example.cnotify_android_example
 
+import android.content.Context
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +11,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import com.example.cnotify_android_example.databinding.ActivityMainBinding
+import me.cnotify.cnotify_android_sdk.CNotifySDK
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,6 +35,27 @@ class MainActivity : AppCompatActivity() {
                 .setAction("Action", null)
                 .setAnchorView(R.id.fab).show()
         }
+
+        // Request push notification permission
+        requestNotificationPermission()
+
+        fun getApplicationContext(): Context {
+            return applicationContext
+        }
+        CNotifySDK.getInstance(getApplicationContext(), true)
+
+    }
+
+    private fun requestNotificationPermission() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+            if (checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) != android.content.pm.PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), NOTIFICATION_PERMISSION_REQUEST_CODE)
+            }
+        }
+    }
+
+    companion object {
+        private const val NOTIFICATION_PERMISSION_REQUEST_CODE = 19971999
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

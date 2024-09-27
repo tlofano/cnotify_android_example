@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "912287497686",
+    "project_id": "cnotify-android-example",
+    "storage_bucket": "cnotify-android-example.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:912287497686:android:784eda51b748526a953877",
+        "android_client_info": {
+          "package_name": "com.example.cnotify_android_example"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAsSKpmjLyInqoeqG8WISf94yOkyB7La4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
